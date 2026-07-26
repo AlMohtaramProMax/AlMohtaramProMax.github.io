@@ -19,6 +19,7 @@
         .navbar {
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 15px 25px;
             background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
@@ -27,19 +28,43 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 1000; /* Ensures it stays on top of content */
+            z-index: 1000;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
         }
         .navbar img {
-            width: 32px; /* Adjust size as needed */
-            height: 32px;
-            /* Removed border-radius: 50%; to keep original shape */
+            width: 48px;
+            height: 48px;
             margin-right: 12px;
-            object-fit: contain; /* Ensures the whole image fits without stretching */
+            object-fit: contain;
         }
         .navbar span {
             font-size: 1.2rem;
             font-weight: bold;
             letter-spacing: 0.5px;
+        }
+        /* Center Buttons */
+        .nav-center {
+            display: flex;
+            gap: 15px;
+        }
+        .nav-center a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .nav-center a:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+        /* Right Spacer */
+        .nav-right {
+            width: 150px;
         }
         /* Main Content Container */
         .content {
@@ -48,7 +73,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding-top: 80px; /* Pushes content below the fixed navbar */
+            padding-top: 80px;
         }
         .card {
             background: rgba(255, 255, 255, 0.1);
@@ -64,8 +89,16 @@
 <body>
     <!-- Top Bar -->
     <nav class="navbar">
-        <img src="icon.png" alt="Site Logo">
-        <span>AMPM's Hub</span>
+        <div class="nav-left">
+            <img src="icon.png" alt="Site Logo">
+            <span>AMPM's Hub</span>
+        </div>
+        <div class="nav-center">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+        </div>
+        <div class="nav-right"></div>
     </nav>
 
     <!-- Center Content -->
