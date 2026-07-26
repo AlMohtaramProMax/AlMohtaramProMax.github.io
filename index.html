@@ -14,7 +14,6 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            /* Removed align-items: center so content doesn't vertically center on the whole page */
         }
         /* Top Navigation Bar with Scroll Hide/Show Effect */
         .navbar {
@@ -71,16 +70,54 @@
         .nav-right {
             width: 150px;
         }
+        /* Main Content Container Layout for Side Panels */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            padding-top: 100px; /* Distance from the navbar */
+            padding-bottom: 100px;
+            box-sizing: border-box;
+            flex: 1;
+            gap: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        /* Side Columns for Extra Buttons */
+        .side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 200px;
+            flex-shrink: 0;
+        }
+        .side-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .side-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.8);
+        }
         /* Main Content Container */
         .content {
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Aligns content to the top instead of stretching/centering vertically */
-            width: 100%;
-            padding-top: 100px; /* Distance from the navbar */
-            padding-bottom: 100px;
+            align-items: flex-start;
             box-sizing: border-box;
+            max-width: 900px;
         }
         .card {
             background: rgba(255, 255, 255, 0.1);
@@ -88,8 +125,7 @@
             border-radius: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            width: 80%;
-            max-width: 900px;
+            width: 100%;
             position: relative;
             box-sizing: border-box;
         }
@@ -120,12 +156,27 @@
         <div class="nav-right"></div>
     </nav>
 
-    <!-- Center Content -->
-    <div class="content" id="home">
-        <div class="card">
-            <img src="icon.png" alt="Card Icon" class="card-icon">
-            <h1>AlMohtaramProMax's Site </h1>
-            <p>I'm Mohtaram and Born in 2010 and I like drawing and animating in 2D or 3D and i wish to work and become a programmer in the future.</p>
+    <!-- Main Container with Side Columns and Center Card -->
+    <div class="main-container">
+        <!-- Left Side Buttons -->
+        <div class="side-column">
+            <a href="#" class="side-btn">Button 1</a>
+            <a href="#" class="side-btn">Button 2</a>
+        </div>
+
+        <!-- Center Content -->
+        <div class="content" id="home">
+            <div class="card">
+                <img src="icon.png" alt="Card Icon" class="card-icon">
+                <h1>Welcome to AMPM's Hub! 🚀</h1>
+                <p>I'm Mohtaram and Born in 2010 and I like drawing and animating in 2D or 3D and i wish to work and become a programmer in the future.</p>
+            </div>
+        </div>
+
+        <!-- Right Side Buttons -->
+        <div class="side-column">
+            <a href="#" class="side-btn">Button 3</a>
+            <a href="#" class="side-btn">Button 4</a>
         </div>
     </div>
 
