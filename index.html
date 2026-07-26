@@ -10,12 +10,11 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #4A3525 0%, #2C1D11 100%);
             color: white;
-            /* Changed from height: 100vh to min-height so the page can grow and scroll */
             min-height: 200vh; 
             margin: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            /* Removed align-items: center so content doesn't vertically center on the whole page */
         }
         /* Top Navigation Bar with Scroll Hide/Show Effect */
         .navbar {
@@ -31,10 +30,10 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: top 0.3s ease-in-out; /* Smooth slide animation */
+            transition: top 0.3s ease-in-out;
         }
         .navbar-hidden {
-            top: -80px; /* Slides the bar completely off-screen upwards */
+            top: -80px;
         }
         .nav-left {
             display: flex;
@@ -77,10 +76,11 @@
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Aligns content to the top instead of stretching/centering vertically */
             width: 100%;
-            padding-top: 120px;
+            padding-top: 100px; /* Distance from the navbar */
             padding-bottom: 100px;
+            box-sizing: border-box;
         }
         .card {
             background: rgba(255, 255, 255, 0.1);
@@ -89,8 +89,8 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             width: 80%;
-            max-width: 900px; /* Much wider content area */
-            position: relative; /* Allows absolute positioning inside it */
+            max-width: 900px;
+            position: relative;
             box-sizing: border-box;
         }
         /* Card Top-Right Icon */
@@ -125,7 +125,7 @@
         <div class="card">
             <img src="icon.png" alt="Card Icon" class="card-icon">
             <h1>Welcome to AMPM's Hub! 🚀</h1>
-            <p>Scroll down to test out the smart navbar hiding feature. This container is now much wider and features your logo in the top right corner.</p>
+            <p>Scroll down to test out the smart navbar hiding feature. This container is now cleanly positioned near the top and horizontally centered.</p>
         </div>
     </div>
 
@@ -138,10 +138,8 @@
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > lastScrollTop && scrollTop > 50) {
-                // Scrolling Down -> Hide Navbar
                 navbar.classList.add("navbar-hidden");
             } else {
-                // Scrolling Up -> Show Navbar
                 navbar.classList.remove("navbar-hidden");
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
