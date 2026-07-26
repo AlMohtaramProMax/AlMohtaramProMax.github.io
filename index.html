@@ -27,12 +27,14 @@
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 1000; /* Ensures it stays on top of content */
         }
         .navbar img {
-            width: 32px;
+            width: 32px; /* Adjust size as needed */
             height: 32px;
-            border-radius: 50%;
+            /* Removed border-radius: 50%; to keep original shape */
             margin-right: 12px;
+            object-fit: contain; /* Ensures the whole image fits without stretching */
         }
         .navbar span {
             font-size: 1.2rem;
@@ -46,7 +48,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding-top: 60px;
+            padding-top: 80px; /* Pushes content below the fixed navbar */
         }
         .card {
             background: rgba(255, 255, 255, 0.1);
@@ -62,11 +64,11 @@
 <body>
     <!-- Top Bar -->
     <nav class="navbar">
-        <img src="icon.png" alt="Logo">
+        <img src="icon.png" alt="Site Logo">
         <span>AMPM's Hub</span>
     </nav>
 
-    <!-- Center Card -->
+    <!-- Center Content -->
     <div class="content">
         <div class="card">
             <h1>Welcome to AMPM's Hub! 🚀</h1>
