@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
         }
-        /* Top Navigation Bar with Scroll Hide/Show Effect */
+        /* Top Navigation Bar */
         .navbar {
             display: flex;
             align-items: center;
@@ -42,14 +42,15 @@
             width: 48px;
             height: 48px;
             margin-right: 12px;
-            object-fit: contain;
+            border-radius: 50%; /* Back to circle */
+            object-fit: cover;
         }
         .navbar span {
             font-size: 1.2rem;
             font-weight: bold;
             letter-spacing: 0.5px;
         }
-        /* Center Buttons */
+        /* Center Buttons in Nav */
         .nav-center {
             display: flex;
             gap: 15px;
@@ -66,71 +67,68 @@
         .nav-center a:hover {
             background: rgba(255, 255, 255, 0.25);
         }
-        /* Right Spacer */
-        .nav-right {
-            width: 150px;
-        }
-        /* Main Content Container */
+        .nav-right { width: 150px; }
+
+        /* Main Content Area */
         .content {
             flex: 1;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            justify-content: center; /* Horizontally centers the card */
+            align-items: center; /* Vertically centers everything on the page */
             width: 100%;
-            padding-top: 100px;
-            padding-bottom: 100px;
+            padding-top: 80px; /* Navbar offset */
             box-sizing: border-box;
+            position: relative;
         }
+        /* The Main Text Card */
         .card {
             background: rgba(255, 255, 255, 0.1);
-            padding: 50px 40px;
+            padding: 40px;
             border-radius: 15px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            width: 80%;
-            max-width: 900px;
-            position: relative;
+            width: 70%;
+            max-width: 800px;
             box-sizing: border-box;
+            text-align: left;
         }
         
-        /* Card Corner Buttons Layout */
-        .card-buttons-left, .card-buttons-right {
+        /* Large Side Buttons (New) */
+        .side-btn-container {
             position: absolute;
-            top: 20px;
+            top: 50%;
+            transform: translateY(-50%);
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            gap: 20px;
         }
-        .card-buttons-left {
-            left: 25px;
-        }
-        .card-buttons-right {
-            right: 25px;
+        .side-btn-container.left { left: 50px; }
+        .side-btn-container.right { right: 50px; }
+
+        .side-btn {
+            width: 150px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
             align-items: center;
-        }
-
-        /* Style for the corner buttons */
-        .card-btn {
-            color: white;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: bold;
             text-decoration: none;
-            padding: 6px 14px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            font-size: 0.85rem;
             transition: 0.3s ease;
+            font-size: 1.1rem;
         }
-        .card-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        /* Card Top-Right Icon */
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
+        .side-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            color: white;
+            transform: scale(1.05);
         }
 
-        h1 { margin-top: 15px; font-size: 2.5rem; }
-        p { font-size: 1.2rem; opacity: 0.9; line-height: 1.6; }
+        h1 { margin-top: 0; font-size: 3rem; }
+        p { font-size: 1.3rem; opacity: 0.9; line-height: 1.6; margin-bottom: 0;}
     </style>
 </head>
 <body>
@@ -149,22 +147,23 @@
 
     <!-- Center Content -->
     <div class="content" id="home">
+        
+        <!-- New Left Side Buttons -->
+        <div class="side-btn-container left">
+            <a href="#" class="side-btn">Button</a>
+            <a href="#" class="side-btn">Button</a>
+        </div>
+
+        <!-- The Main Card (Centered) -->
         <div class="card">
-            <!-- Top Left Buttons -->
-            <div class="card-buttons-left">
-                <a href="#" class="card-btn">Button 1</a>
-                <a href="#" class="card-btn">Button 2</a>
-            </div>
-
-            <!-- Top Right Buttons + Icon -->
-            <div class="card-buttons-right">
-                <a href="#" class="card-btn">Button 3</a>
-                <a href="#" class="card-btn">Button 4</a>
-                <img src="icon.png" alt="Card Icon" class="card-icon">
-            </div>
-
             <h1>Welcome to AMPM's Hub! 🚀</h1>
             <p>I'm Mohtaram and Born in 2010 and I like drawing and animating in 2D or 3D and i wish to work and become a programmer in the future.</p>
+        </div>
+
+        <!-- New Right Side Buttons -->
+        <div class="side-btn-container right">
+            <a href="#" class="side-btn">Button</a>
+            <a href="#" class="side-btn">Button</a>
         </div>
     </div>
 
@@ -172,10 +171,8 @@
     <script>
         let lastScrollTop = 0;
         const navbar = document.getElementById("navbar");
-
         window.addEventListener("scroll", function() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
             if (scrollTop > lastScrollTop && scrollTop > 50) {
                 navbar.classList.add("navbar-hidden");
             } else {
