@@ -98,7 +98,7 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            width: 200px; /* Perfectly matches the width of the bottom buttons */
+            width: 200px;
             flex-shrink: 0;
         }
         .side-btn {
@@ -118,7 +118,7 @@
             overflow: hidden;
             height: 100px;
             box-sizing: border-box;
-            width: 100%; /* Fills the 200px side-column exactly */
+            width: 100%;
         }
         .side-btn img {
             width: 100%;
@@ -129,6 +129,13 @@
             background: rgba(255, 255, 255, 0.25);
             border-color: rgba(255, 255, 255, 0.8);
         }
+
+        /* CUSTOM WIDTH & HEIGHT JUST FOR TWITCH & STEAM BUTTONS */
+        .bottom-side-btn {
+            width: 180px;   /* Change this to your desired width */
+            height: 120px;  /* Change this to your desired height */
+        }
+
         /* Center Area wrapper to stack multiple cards vertically */
         .center-wrapper {
             flex: 1;
@@ -204,8 +211,8 @@
             <a href="https://guns.lol/almohtarampromax" target="_blank" class="side-btn">
                 <img src="guns.gif" alt="Button 2 GIF">
             </a>
-            <!-- New Bottom-Left Button matching width -->
-            <a href="https://www.twitch.tv" target="_blank" class="side-btn">
+            <!-- Twitch Button with custom class -->
+            <a href="https://www.twitch.tv" target="_blank" class="side-btn bottom-side-btn">
                 <img src="Twitch.gif" alt="Twitch Button GIF">
             </a>
         </div>
@@ -242,8 +249,8 @@
             <a href="https://discord.com" target="_blank" class="side-btn">
                 <img src="discord.gif" alt="Button 4 GIF">
             </a>
-            <!-- New Bottom-Right Button matching width -->
-            <a href="https://store.steampowered.com" target="_blank" class="side-btn">
+            <!-- Steam Button with custom class -->
+            <a href="https://store.steampowered.com" target="_blank" class="side-btn bottom-side-btn">
                 <img src="Steam.gif" alt="Steam Button GIF">
             </a>
         </div>
