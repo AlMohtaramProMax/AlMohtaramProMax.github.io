@@ -80,16 +80,15 @@
                 transform: translateY(0);
             }
         }
-        /* Main Content Container Layout for Side Panels */
+        /* Main Container Layout for Side Panels & Content */
         .main-container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
             width: 100%;
             padding-top: 100px; /* Distance from the navbar */
-            padding-bottom: 100px;
+            padding-bottom: 50px;
             box-sizing: border-box;
-            flex: 1;
             gap: 20px;
             padding-left: 20px;
             padding-right: 20px;
@@ -129,14 +128,19 @@
             background: rgba(255, 255, 255, 0.25);
             border-color: rgba(255, 255, 255, 0.8);
         }
+        /* Center Area wrapper to stack multiple cards vertically */
+        .center-wrapper {
+            flex: 1;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
         /* Main Content Container */
         .content {
-            flex: 1;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            width: 100%;
             box-sizing: border-box;
-            max-width: 900px;
         }
         .card {
             background: rgba(255, 255, 255, 0.1);
@@ -159,6 +163,20 @@
         }
         h1 { margin-top: 0; font-size: 2.5rem; }
         p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Row layout for multiple cards side by side (like your bottom drawing) */
+        .cards-row {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .card-small {
+            flex: 1;
+        }
+        .card-large {
+            flex: 2;
+        }
     </style>
 </head>
 <body>
@@ -175,7 +193,7 @@
         <div class="nav-right"></div>
     </nav>
 
-    <!-- Main Container with Side Columns and Center Card -->
+    <!-- Main Container with Side Columns and Center Cards -->
     <div class="main-container">
         <!-- Left Side Buttons -->
         <div class="side-column">
@@ -187,18 +205,33 @@
             </a>
         </div>
 
-        <!-- Center Content -->
-        <div class="content" id="home">
-            <div class="card">
-                <img src="icon.png" alt="Card Icon" class="card-icon">
-                <h1>Welcome to My Website.</h1>
-                <p>I'm Mohtaram, born in 2010 and I'm from Tunisia. I like drawing and animating in 2D or 3D and i wish to work and become a programmer in the future.</p>
+        <!-- Center Wrapper for Stacked Cards -->
+        <div class="center-wrapper" id="home">
+            <!-- Original Top Card -->
+            <div class="content">
+                <div class="card">
+                    <img src="icon.png" alt="Card Icon" class="card-icon">
+                    <h1>Welcome to My Website.</h1>
+                    <p>I'm Mohtaram, born in 2010 and I'm from Tunisia. I like drawing and animating in 2D or 3D and i wish to work and become a programmer in the future.</p>
+                </div>
+            </div>
+
+            <!-- New Additional Boxes Row (Matching your drawing layout) -->
+            <div class="cards-row">
+                <div class="card card-small">
+                    <h2>Box 1</h2>
+                    <p>Add your content here!</p>
+                </div>
+                <div class="card card-large">
+                    <h2>Box 2</h2>
+                    <p>Add your larger content or description here!</p>
+                </div>
             </div>
         </div>
 
         <!-- Right Side Buttons -->
         <div class="side-column">
-            <a href=https://x.com/AlMohtaram_YT target="_blank" class="side-btn">
+            <a href="https://x.com/AlMohtaram_YT" target="_blank" class="side-btn">
                 <img src="Twitter.gif" alt="Button 3 GIF">
             </a>
             <a href="https://discord.com" target="_blank" class="side-btn">
